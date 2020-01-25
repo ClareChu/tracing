@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6dbe7384-85d3-432f-9fe1-d20778fc6a86" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="/usr/local/go" />
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+    <option name="useGoPathFromSystemEnvironment" value="false" />
+  </component>
+  <component name="ProjectId" id="1Wt2Z7ZcL0Oypxi0xHwIkLhRzOP" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="settings.editor.selected.configurable" value="go.vgo" />
+  </component>
+  <component name="RunManager">
+    <configuration name="go build github.com/ClareChu/tracing/web" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="tracing" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/web/main.go" />
+      <package value="github.com/ClareChu/tracing/web" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build github.com/ClareChu/tracing/web" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+    <proxy>https://goproxy.cn</proxy>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="320" y="102" key="#Inspections" timestamp="1579960866185">
+      <screen x="0" y="23" width="1440" height="828" />
+    </state>
+    <state x="320" y="102" key="#Inspections/0.23.1440.828@0.23.1440.828" timestamp="1579960866185" />
+    <state width="1398" height="203" key="GridCell.Tab.0.bottom" timestamp="1579963760128">
+      <screen x="0" y="23" width="1440" height="828" />
+    </state>
+    <state width="1398" height="203" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1579963760128" />
+    <state width="1398" height="203" key="GridCell.Tab.0.center" timestamp="1579963760127">
+      <screen x="0" y="23" width="1440" height="828" />
+    </state>
+    <state width="1398" height="203" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1579963760127" />
+    <state width="1398" height="203" key="GridCell.Tab.0.left" timestamp="1579963760126">
+      <screen x="0" y="23" width="1440" height="828" />
+    </state>
+    <state width="1398" height="203" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1579963760126" />
+    <state width="1398" height="203" key="GridCell.Tab.0.right" timestamp="1579963760128">
+      <screen x="0" y="23" width="1440" height="828" />
+    </state>
+    <state width="1398" height="203" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1579963760128" />
+    <state width="1398" height="203" key="GridCell.Tab.1.bottom" timestamp="1579963760047">
+      <screen x="0" y="23" width="1440" height="828" />
+    </state>
+    <state width="1398" height="203" key="GridCell.Tab.1.bottom/0.23.1440.828@0.23.1440.828" timestamp="1579963760047" />
+    <state width="1398" height="203" key="GridCell.Tab.1.center" timestamp="1579963760046">
+      <screen x="0" y="23" width="1440" height="828" />
+    </state>
+    <state width="1398" height="203" key="GridCell.Tab.1.center/0.23.1440.828@0.23.1440.828" timestamp="1579963760046" />
+    <state width="1398" height="203" key="GridCell.Tab.1.left" timestamp="1579963760046">
+      <screen x="0" y="23" width="1440" height="828" />
+    </state>
+    <state width="1398" height="203" key="GridCell.Tab.1.left/0.23.1440.828@0.23.1440.828" timestamp="1579963760046" />
+    <state width="1398" height="203" key="GridCell.Tab.1.right" timestamp="1579963760047">
+      <screen x="0" y="23" width="1440" height="828" />
+    </state>
+    <state width="1398" height="203" key="GridCell.Tab.1.right/0.23.1440.828@0.23.1440.828" timestamp="1579963760047" />
+  </component>
+</project>
