@@ -37,7 +37,9 @@ defer span.Finish()
 // StartSpanFromContext 会将新span保存到ctx中更新
 ```
 
-或者先取出 parent span，然后在以 childof 开启span，需要手动写入新 span 到 ctx中。
+或者
+
+###### 先取出 parent span，然后在以 childof 开启span，需要手动写入新 span 到 ctx中。
 
 ```go
 //获取上一级 span
@@ -79,4 +81,51 @@ s := grpc.NewServer(
         otgrpc.OpenTracingServerInterceptor(tracer)),
     grpc.StreamInterceptor(
         otgrpc.OpenTracingStreamServerInterceptor(tracer)))
+```
+
+Serializing to the wire
+```go
+func makeSomeRequest(ctx context.Context) ... {
+        if span := opentracing.SpanFromContext(ctx); span != nil {
+            httpClient := &http.Client{}
+            httpReq, _ := http.NewRequest("GET", "http://myservice/", nil)
+
+            // Transmit the span's TraceContext as HTTP headers on our
+            // outbound request.
+            opentracing.GlobalTracer().Inject(
+                span.Context(),
+                opentracing.HTTPHeaders,
+                opentracing.HTTPHeadersCarrier(httpReq.Header))
+
+            resp, err := httpClient.Do(httpReq)
+            ...
+        }
+        ...
+    }
+```
+
+Deserializing from the wire
+
+```go
+http.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
+        var serverSpan opentracing.Span
+        appSpecificOperationName := ...
+        wireContext, err := opentracing.GlobalTracer().Extract(
+            opentracing.HTTPHeaders,
+            opentracing.HTTPHeadersCarrier(req.Header))
+        if err != nil {
+            // Optionally record something about err here
+        }
+
+        // Create the span referring to the RPC client if available.
+        // If wireContext == nil, a root span will be created.
+        serverSpan = opentracing.StartSpan(
+            appSpecificOperationName,
+            ext.RPCServerOption(wireContext))
+
+        defer serverSpan.Finish()
+
+        ctx := opentracing.ContextWithSpan(context.Background(), serverSpan)
+        ...
+    }
 ```

@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6dbe7384-85d3-432f-9fe1-d20778fc6a86" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/controller/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/controller/dns.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/iris/config.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/iris/web/dns.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/service/dns.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/tracing/tracing.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/REAMDME.md" beforeDir="false" afterPath="$PROJECT_DIR$/REAMDME.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/controller/builder.go" beforeDir="false" afterPath="$PROJECT_DIR$/client/controller/builder.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/client/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/controller/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/jaeger/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/client/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +52,14 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/tracing" />
+      <recent name="$PROJECT_DIR$/client/iris/web" />
+      <recent name="$PROJECT_DIR$/jaeger" />
+      <recent name="$PROJECT_DIR$/client" />
+    </key>
   </component>
   <component name="RunManager" selected="Go Build.go build main.go">
     <configuration name="go build github.com/ClareChu/tracing/web" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -101,37 +114,48 @@
       <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state x="429" y="148" key="#go_build_github.com/ClareChu/tracing/web/0.23.1440.828@0.23.1440.828" timestamp="1580137832132" />
-    <state width="1398" height="203" key="GridCell.Tab.0.bottom" timestamp="1580137946134">
+    <state width="1398" height="423" key="GridCell.Tab.0.bottom" timestamp="1580145015099">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1580137946134" />
-    <state width="1398" height="203" key="GridCell.Tab.0.center" timestamp="1580137946133">
+    <state width="1398" height="423" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1580145015099" />
+    <state width="1398" height="423" key="GridCell.Tab.0.center" timestamp="1580145015097">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1580137946133" />
-    <state width="1398" height="203" key="GridCell.Tab.0.left" timestamp="1580137946132">
+    <state width="1398" height="423" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1580145015097" />
+    <state width="1398" height="423" key="GridCell.Tab.0.left" timestamp="1580145015097">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1580137946132" />
-    <state width="1398" height="203" key="GridCell.Tab.0.right" timestamp="1580137946133">
+    <state width="1398" height="423" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1580145015097" />
+    <state width="1398" height="423" key="GridCell.Tab.0.right" timestamp="1580145015098">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1580137946133" />
-    <state width="1398" height="203" key="GridCell.Tab.1.bottom" timestamp="1580137946135">
+    <state width="1398" height="423" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1580145015098" />
+    <state width="1398" height="423" key="GridCell.Tab.1.bottom" timestamp="1580145015102">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.1.bottom/0.23.1440.828@0.23.1440.828" timestamp="1580137946135" />
-    <state width="1398" height="203" key="GridCell.Tab.1.center" timestamp="1580137946135">
+    <state width="1398" height="423" key="GridCell.Tab.1.bottom/0.23.1440.828@0.23.1440.828" timestamp="1580145015102" />
+    <state width="1398" height="423" key="GridCell.Tab.1.center" timestamp="1580145015101">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.1.center/0.23.1440.828@0.23.1440.828" timestamp="1580137946135" />
-    <state width="1398" height="203" key="GridCell.Tab.1.left" timestamp="1580137946134">
+    <state width="1398" height="423" key="GridCell.Tab.1.center/0.23.1440.828@0.23.1440.828" timestamp="1580145015101" />
+    <state width="1398" height="423" key="GridCell.Tab.1.left" timestamp="1580145015101">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.1.left/0.23.1440.828@0.23.1440.828" timestamp="1580137946134" />
-    <state width="1398" height="203" key="GridCell.Tab.1.right" timestamp="1580137946135">
+    <state width="1398" height="423" key="GridCell.Tab.1.left/0.23.1440.828@0.23.1440.828" timestamp="1580145015101" />
+    <state width="1398" height="423" key="GridCell.Tab.1.right" timestamp="1580145015102">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.1.right/0.23.1440.828@0.23.1440.828" timestamp="1580137946135" />
+    <state width="1398" height="423" key="GridCell.Tab.1.right/0.23.1440.828@0.23.1440.828" timestamp="1580145015102" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/client/controller/dns.go</url>
+          <line>16</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
