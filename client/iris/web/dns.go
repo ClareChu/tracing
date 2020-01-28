@@ -1,7 +1,6 @@
 package web
 
 import (
-	"context"
 	"fmt"
 	"github.com/ClareChu/tracing/client/controller"
 	"github.com/kataras/iris/v12"
@@ -16,8 +15,7 @@ type Dns interface {
 func Start(ctx iris.Context) {
 	dns := controller.Dns{}
 	parent := opentracing.GlobalTracer().StartSpan("dnsStart")
-	ctx2 := context.Background()
-	ctx2 = opentracing.ContextWithSpan(ctx2, parent)
+	ctx2 := opentracing.ContextWithSpan(ctx.Request().Context(), parent)
 	rep := dns.Start(ctx2)
 	_, err := ctx.JSON(rep)
 	fmt.Println(err)
@@ -27,8 +25,7 @@ func Start(ctx iris.Context) {
 func Done(ctx iris.Context) {
 	dns := controller.Dns{}
 	parent := opentracing.GlobalTracer().StartSpan("dnsDone")
-	ctx2 := context.Background()
-	ctx2 = opentracing.ContextWithSpan(ctx2, parent)
+	ctx2 := opentracing.ContextWithSpan(ctx.Request().Context(), parent)
 	rep := dns.Done(ctx2)
 	_, err := ctx.JSON(rep)
 	fmt.Println(err)

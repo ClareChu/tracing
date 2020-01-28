@@ -3,12 +3,10 @@ package service
 import (
 	"context"
 	"fmt"
-	"github.com/opentracing-contrib/go-stdlib/nethttp"
+	"github.com/ClareChu/gorequest"
 	"github.com/opentracing/opentracing-go"
 	"github.com/opentracing/opentracing-go/ext"
 	"github.com/opentracing/opentracing-go/log"
-	"io/ioutil"
-	"net/http"
 	"net/http/httptrace"
 )
 
@@ -37,30 +35,10 @@ func (h *clientTrace) dnsDone(httptrace.DNSDoneInfo) {
 	h.span.LogKV(log.String("event", "DNS done"))
 }
 
-func runClient(ctx context.Context) {
-	// nethttp.Transport from go-stdlib will do the tracing
-	c := &http.Client{Transport: &nethttp.Transport{}}
-	tracer := opentracing.SpanFromContext(ctx).Tracer()
-
-	// create a top-level span to represent full work of the client
-
-	req, err := http.NewRequest(
-		"GET",
-		fmt.Sprintf("http://localhost:%s/", "8081"),
-		nil,
-	)
-
-	req = req.WithContext(ctx)
-	// wrap the request in nethttp.TraceRequest
-	req, ht := nethttp.TraceRequest(tracer, req)
-	defer ht.Finish()
-	res, err := c.Do(req)
-	defer res.Body.Close()
-	body, err := ioutil.ReadAll(res.Body)
-	if err != nil {
-		return
-	}
-	fmt.Printf("Received result: %s\n", string(body))
+func RunClient(ctx context.Context) {
+	url := "http://localhost:8081/dns/start"
+	resp, _, _ := gorequest.New().Get(url).SetSpanContext(ctx).End()
+	fmt.Println(resp.StatusCode)
 }
 
 func onError(span opentracing.Span, err error) {

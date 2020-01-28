@@ -3,7 +3,6 @@ package controller
 import (
 	"context"
 	"fmt"
-	"github.com/ClareChu/tracing/client/service"
 	"github.com/opentracing/opentracing-go"
 	"runtime"
 	"strconv"
@@ -21,8 +20,7 @@ type Response struct {
 
 func (d *Dns) Start(ctx context.Context) (rep *Response) {
 	span, ctx := opentracing.StartSpanFromContext(ctx, "startService")
-	span.LogKV("message", "dns start...")
-	service.RunClient(ctx)
+	span.LogKV("message", "server dns start...")
 	defer span.Finish()
 	return &Response{
 		Code:    0,
@@ -34,7 +32,7 @@ func (d *Dns) Done(ctx context.Context) (rep *Response) {
 	span, ctx := opentracing.StartSpanFromContext(ctx, "startService")
 	defer span.Finish()
 	time.Sleep(30 * time.Second)
-	span.LogKV("message", "dns Done...")
+	span.LogKV("message", "server dns Done...")
 	return &Response{
 		Code:    0,
 		Message: "done",
