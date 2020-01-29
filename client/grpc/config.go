@@ -2,47 +2,36 @@ package grpc
 
 import (
 	"context"
-	"github.com/ClareChu/tracing/proto"
 	"github.com/grpc-ecosystem/grpc-opentracing/go/otgrpc"
 	"github.com/opentracing/opentracing-go"
 	"google.golang.org/grpc"
 	"log"
-	"time"
 )
 
 const (
 	address = "localhost:7575"
 )
 
-func NewConfig(tracer opentracing.Tracer) {
+func NewConfig(tracer opentracing.Tracer) (*grpc.ClientConn, error) {
 	//建立链接
 	conn, err := grpc.Dial(
 		address,
 		grpc.WithUnaryInterceptor(
 			otgrpc.OpenTracingClientInterceptor(tracer)),
-/*		grpc.WithUnaryInterceptor(UnaryClientInterceptor),
-		grpc.WithStreamInterceptor(StreamClientInterceptor),*/
+		grpc.WithInsecure(),
+		/*		grpc.WithUnaryInterceptor(UnaryClientInterceptor),
+				grpc.WithStreamInterceptor(StreamClientInterceptor),*/
 		grpc.WithStreamInterceptor(
-			otgrpc.OpenTracingStreamClientInterceptor(tracer)))
+			otgrpc.OpenTracingStreamClientInterceptor(tracer)),
+		grpc.WithInsecure(), )
 
-/*	conn, err := grpc.Dial(address, grpc.WithInsecure(),
+	/*	conn, err := grpc.Dial(address, grpc.WithInsecure(),
 		grpc.WithUnaryInterceptor(UnaryClientInterceptor),
 		grpc.WithStreamInterceptor(StreamClientInterceptor))*/
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
-	defer conn.Close()
-	c := proto.NewStudentServiceClient(conn)
-
-	// 1秒的上下文
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
-	defer cancel()
-	in := &proto.StudentDTO{}
-	br, err := c.Get(ctx, in)
-	if err != nil {
-		log.Fatalf("could not greet: %v", err)
-	}
-	log.Printf("Greeting: %s", br)
+	return conn, err
 }
 
 func UnaryClientInterceptor(ctx context.Context, method string, req, reply interface{}, cc *grpc.ClientConn, invoker grpc.UnaryInvoker, opts ...grpc.CallOption) error {

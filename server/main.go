@@ -9,7 +9,11 @@ import (
 func main() {
 	tracer, closer := tracing.NewTracing()
 	defer closer.Close()
-	grpc.NewConfig(tracer)
-	iris.NewConfig()
 
+	s, err := grpc.NewConfig(tracer)
+	if err != nil {
+		return
+	}
+	defer s.Stop()
+	iris.NewConfig()
 }

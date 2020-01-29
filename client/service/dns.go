@@ -38,7 +38,10 @@ func (h *clientTrace) dnsDone(httptrace.DNSDoneInfo) {
 func RunClient(ctx context.Context) {
 	url := "http://localhost:8081/dns/start"
 	resp, _, _ := gorequest.New().Get(url).SetSpanContext(ctx).End()
-	fmt.Println(resp.StatusCode)
+	if resp != nil {
+		fmt.Println(resp.StatusCode)
+	}
+
 }
 
 func onError(span opentracing.Span, err error) {

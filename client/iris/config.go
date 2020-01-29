@@ -11,5 +11,6 @@ func NewConfig() {
 	app.Get("/", controller.Get)
 	app.Get("/dns/start", web.Start)
 	app.Get("/dns/done", web.Done)
+	app.Get("/student", web.Get)
 	app.Run(iris.Addr(":8080"))
 }
