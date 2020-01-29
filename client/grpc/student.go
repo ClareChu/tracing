@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-func Get(ctx context.Context) (*proto.BaseResponse, error) {
+func Get(ctx context.Context, id int64) (*proto.BaseResponse, error) {
 	span := opentracing.SpanFromContext(ctx)
 	conn, err := NewConfig(span.Tracer())
 	if err != nil {
@@ -17,7 +17,9 @@ func Get(ctx context.Context) (*proto.BaseResponse, error) {
 	c := proto.NewStudentServiceClient(conn)
 	ctx, cancel := context.WithTimeout(ctx, time.Minute)
 	defer cancel()
-	dto := &proto.StudentDTO{}
+	dto := &proto.StudentDTO{
+		Id: id,
+	}
 	response, err := c.Get(ctx, dto)
 	return response, err
 }

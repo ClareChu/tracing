@@ -8,11 +8,14 @@ import (
 )
 
 func Get(ctx iris.Context) {
-	dto := controller.Student{}
+	id, err := ctx.URLParamInt64("id")
+	dto := controller.Student{
+		Id: id,
+	}
 	parent := opentracing.GlobalTracer().StartSpan("getStudent")
 	ctx2 := opentracing.ContextWithSpan(ctx.Request().Context(), parent)
 	rep := dto.Get(ctx2)
-	_, err := ctx.JSON(rep)
+	_, err = ctx.JSON(rep)
 	fmt.Println(err)
 	defer parent.Finish()
 }

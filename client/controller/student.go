@@ -8,12 +8,13 @@ import (
 )
 
 type Student struct {
+	Id int64 `json:"id"`
 }
 
 func (s *Student) Get(ctx context.Context) *proto.BaseResponse {
 	span, ctx := opentracing.StartSpanFromContext(ctx, "controllerStudent")
 	span.LogKV("message", "get grpc student...")
-	resp, err := grpc.Get(ctx)
+	resp, err := grpc.Get(ctx, s.Id)
 	if err != nil {
 		span.LogKV("error", err.Error())
 	}
