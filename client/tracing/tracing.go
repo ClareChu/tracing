@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-func NewTracing() io.Closer {
+func NewTracing() (opentracing.Tracer, io.Closer) {
 	cfg := config.Configuration{
 		ServiceName: "client",
 		Sampler: &config.SamplerConfig{
@@ -26,5 +26,5 @@ func NewTracing() io.Closer {
 		config.Logger(jaeger.StdLogger),
 	)
 	opentracing.SetGlobalTracer(tracer)
-	return closer
+	return tracer, closer
 }

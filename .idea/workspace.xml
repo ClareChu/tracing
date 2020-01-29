@@ -2,18 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6dbe7384-85d3-432f-9fe1-d20778fc6a86" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/service/dns_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/controller/dns.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/iris/config.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/iris/web/dns.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/tracing/tracing.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/grpc/config.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proto/build.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proto/student.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/grpc/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/tracing.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tracing.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/controller/dns.go" beforeDir="false" afterPath="$PROJECT_DIR$/client/controller/dns.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/iris/web/dns.go" beforeDir="false" afterPath="$PROJECT_DIR$/client/iris/web/dns.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/service/dns.go" beforeDir="false" afterPath="$PROJECT_DIR$/client/service/dns.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/client/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/tracing/tracing.go" beforeDir="false" afterPath="$PROJECT_DIR$/client/tracing/tracing.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jaeger/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/jaeger/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/tracing/tracing.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/tracing/tracing.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,17 +57,18 @@
     <property name="settings.editor.selected.configurable" value="go.vgo" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/server" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/grpc" />
       <recent name="$PROJECT_DIR$/client/tracing" />
       <recent name="$PROJECT_DIR$/client/iris/web" />
       <recent name="$PROJECT_DIR$/jaeger" />
       <recent name="$PROJECT_DIR$/client" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server" />
+    </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build main.go">
+  <component name="RunManager" selected="Shell Script.build.sh">
     <configuration name="go build github.com/ClareChu/tracing/server" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="tracing" />
       <working_directory value="$PROJECT_DIR$" />
@@ -92,8 +95,17 @@
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
+    <configuration name="build.sh" type="ShConfigurationType" temporary="true">
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/proto/build.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/proto" />
+      <option name="INTERPRETER_PATH" value="/bin/zsh" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Shell Script.build.sh" />
         <item itemvalue="Go Build.go build main.go" />
         <item itemvalue="Go Build.go build github.com/ClareChu/tracing/server" />
         <item itemvalue="Go Build.go build github.com/ClareChu/tracing/web" />
@@ -128,22 +140,22 @@
       <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state x="429" y="148" key="#go_build_github.com/ClareChu/tracing/web/0.23.1440.828@0.23.1440.828" timestamp="1580137832132" />
-    <state width="1398" height="206" key="GridCell.Tab.0.bottom" timestamp="1580226444657">
+    <state width="1398" height="206" key="GridCell.Tab.0.bottom" timestamp="1580227431126">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state width="1398" height="206" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1580226444657" />
-    <state width="1398" height="206" key="GridCell.Tab.0.center" timestamp="1580226444656">
+    <state width="1398" height="206" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1580227431126" />
+    <state width="1398" height="206" key="GridCell.Tab.0.center" timestamp="1580227431125">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state width="1398" height="206" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1580226444656" />
-    <state width="1398" height="206" key="GridCell.Tab.0.left" timestamp="1580226444655">
+    <state width="1398" height="206" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1580227431125" />
+    <state width="1398" height="206" key="GridCell.Tab.0.left" timestamp="1580227431124">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state width="1398" height="206" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1580226444655" />
-    <state width="1398" height="206" key="GridCell.Tab.0.right" timestamp="1580226444656">
+    <state width="1398" height="206" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1580227431124" />
+    <state width="1398" height="206" key="GridCell.Tab.0.right" timestamp="1580227431125">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
-    <state width="1398" height="206" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1580226444656" />
+    <state width="1398" height="206" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1580227431125" />
     <state width="1398" height="268" key="GridCell.Tab.1.bottom" timestamp="1580213742590">
       <screen x="0" y="23" width="1440" height="828" />
     </state>

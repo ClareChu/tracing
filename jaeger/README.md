@@ -1,3 +1,24 @@
+
+### Jaeger组件
+
+#### Agent
+
+Agent是一个网络守护进程，监听通过UDP发送过来的Span，它会将其批量发送给collector。按照设计，Agent要被部署到所有主机上，作为基础设施。Agent将collector和客户端之间的路由与发现机制抽象了出来。
+
+#### Collector
+
+Collector从Jaeger Agent接收Trace，并通过一个处理管道对其进行处理。目前的管道会校验Trace、建立索引、执行转换并最终进行存储。存储是一个可插入的组件，现在支持Cassandra和elasticsearch。
+
+#### Query
+
+Query服务会从存储中检索Trace并通过UI界面进行展现，该UI界面通过React技术实现，其页面UI如下图所示，展现了一条Trace的详细信息。
+
+#### 存储
+
+jaeger采集到的数据必须存储到某个存储引擎，目前支持Cassandra和elasticsearch
+
+ 
+
 在开启 span 记录一个过程时，还可以通过 api 进行 tag，logs等操作 ，并能在 UI 看到相应设置的键z值
 ```go
 span.SetTag("value", helloStr)
