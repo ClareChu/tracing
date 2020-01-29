@@ -1,0 +1,56 @@
+syntax = "proto3";
+package proto;
+
+message StudentDTO {
+    int64 id = 1;
+
+    string tbName = 2;
+
+    int32 tbAge = 3;
+
+    string tbNumber = 4;
+
+    int32 tbSex = 5;
+}
+
+message BaseResponse {
+    int32 code = 1;
+    string message = 2;
+    StudentDTO data = 3;
+}
+
+message PageInfo {
+    int32 pageNum = 1;
+    int32 pageSize = 2;
+    int32 size = 3;
+    string orderBy = 4;
+    int32 startRow = 5;
+    int32 endRow = 6;
+    int64 total = 7;
+    int32 pages = 8;
+    repeated StudentDTO list = 9;
+    int32 firstPage = 10;
+    int32 prePage = 11;
+    int32 nextPage = 12;
+    int32 lastPage = 13;
+    bool isFirstPage = 14;
+    bool isLastPage = 15;
+    bool hasPreviousPage = 16;
+    bool hasNextPage = 17;
+    int32 navigatePages = 18;
+}
+
+service StudentService {
+    rpc Get (StudentDTO) returns (BaseResponse) {
+    }
+
+    rpc Insert (StudentDTO) returns (BaseResponse) {
+    }
+
+    rpc Update (StudentDTO) returns (BaseResponse) {
+    }
+
+    rpc GetList(StudentDTO) returns (PageInfo) {
+    }
+
+}
